@@ -1,6 +1,6 @@
 This is a sample app demonstrating java sdk integration with CF 
 
-##To use this application, follow the steps as below 
+## To use this application, follow the steps as below ##
 
 1) Create a project in Harness with Feature-flags module enabled
 2) Create an environment within your project
