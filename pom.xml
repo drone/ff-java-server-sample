@@ -10,16 +10,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>io.harness.cf</groupId>
-            <artifactId>cf-client-sdk-java</artifactId>
+            <groupId>io.harness</groupId>
+            <artifactId>ff-java-server-sdk</artifactId>
             <version>0.0.1</version>
         </dependency>
     </dependencies>
-    <repositories>
-        <repository>
-            <id>harness-internal</id>
-            <name>harness-internal-releases</name>
-            <url>https://harness.jfrog.io/artifactory/harness-internal</url>
-        </repository>
-    </repositories>
 </project>
