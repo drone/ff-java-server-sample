@@ -1,12 +1,15 @@
 import io.harness.cf.client.api.CfClient;
 import io.harness.cf.client.api.Config;
 import io.harness.cf.client.dto.Target;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.HashMap;
 
 /**
  * This is a sample program that demonstrates a simple integration of the
  * ff-java-server-sdk with Harness Feature Flags
  */
+@Slf4j
 public class HelloWorld {
   public static void main(String[] args) {
     try {
@@ -15,7 +18,7 @@ public class HelloWorld {
        */
       String apiKey = "a2a03d94-b37d-49b8-8566-1c29b86ab255";
       CfClient cfClient =
-          new CfClient(apiKey, Config.builder().anayticsEnabled(false).build());
+          new CfClient(apiKey, Config.builder().analyticsEnabled(false).build());
       /**
        * Define you target on which you would like to evaluate the featureFlag
        */
@@ -35,7 +38,7 @@ public class HelloWorld {
          */
         boolean result =
             cfClient.boolVariation("sample_boolean_flag", target, false);
-        System.out.println("Boolean variation is " + result);
+        log.info("Boolean variation is " + result);
       }
     } catch (Exception e) {
       e.printStackTrace();
