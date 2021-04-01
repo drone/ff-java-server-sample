@@ -20,7 +20,6 @@ public class HelloWorld {
           new CfClient(apiKey, Config.builder()
                                    .configUrl("http://35.199.167.179/api/1.0")
                                    .eventUrl("http://34.83.236.94/api/1.0")
-                                   .analyticsEnabled(true)
                                    .build());
       /**
        * Define you target on which you would like to evaluate the featureFlag
