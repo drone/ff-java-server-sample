@@ -1,9 +1,8 @@
 import io.harness.cf.client.api.CfClient;
 import io.harness.cf.client.api.Config;
 import io.harness.cf.client.dto.Target;
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.HashMap;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * This is a sample program that demonstrates a simple integration of the
@@ -16,9 +15,13 @@ public class HelloWorld {
       /**
        * Put the API Key here from your environment
        */
-      String apiKey = "a2a03d94-b37d-49b8-8566-1c29b86ab255";
+      String apiKey = "27704199-d73c-49eb-92ac-6896ffd7558e";
       CfClient cfClient =
-          new CfClient(apiKey, Config.builder().analyticsEnabled(false).build());
+          new CfClient(apiKey, Config.builder()
+                                   .configUrl("http://35.199.167.179/api/1.0")
+                                   .eventUrl("http://34.83.236.94/api/1.0")
+                                   .analyticsEnabled(true)
+                                   .build());
       /**
        * Define you target on which you would like to evaluate the featureFlag
        */
@@ -36,8 +39,7 @@ public class HelloWorld {
          * This is a sample boolean flag. You can replace the flag value with
          * the identifier of your feature flag
          */
-        boolean result =
-            cfClient.boolVariation("sample_boolean_flag", target, false);
+        boolean result = cfClient.boolVariation("myboolean1", target, false);
         log.info("Boolean variation is " + result);
       }
     } catch (Exception e) {
