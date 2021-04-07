@@ -1,9 +1,8 @@
 import io.harness.cf.client.api.CfClient;
 import io.harness.cf.client.api.Config;
 import io.harness.cf.client.dto.Target;
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.HashMap;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * This is a sample program that demonstrates a simple integration of the
@@ -17,8 +16,7 @@ public class HelloWorld {
        * Put the API Key here from your environment
        */
       String apiKey = "a2a03d94-b37d-49b8-8566-1c29b86ab255";
-      CfClient cfClient =
-          new CfClient(apiKey, Config.builder().analyticsEnabled(false).build());
+      CfClient cfClient = new CfClient(apiKey, Config.builder().build());
       /**
        * Define you target on which you would like to evaluate the featureFlag
        */
