@@ -29,6 +29,17 @@ public class HelloWorld {
                           .attributes(new HashMap<String, Object>())
                           .identifier("user1@example.com")
                           .build();
+      Target target2 = Target.builder()
+          .name("User2")
+          .attributes(new HashMap<String, Object>())
+          .identifier("user2@example.com")
+          .build();
+
+      Target target3 = Target.builder()
+          .name("User3")
+          .attributes(new HashMap<String, Object>())
+          .identifier("user3@example.com")
+          .build();
       while (true) {
         /**
          * Sleep for sometime before printing the value of the flag
@@ -39,7 +50,14 @@ public class HelloWorld {
          * the identifier of your feature flag
          */
         boolean result = cfClient.boolVariation("myboolean1", target, false);
-        log.info("Boolean variation is " + result);
+        log.info("Boolean variation for user1 is " + result);
+
+        result = cfClient.boolVariation("myboolean1", target2, false);
+        log.info("Boolean variation for user2 is " + result);
+
+        result = cfClient.boolVariation("myboolean1", target3, false);
+        log.info("Boolean variation for user3 is " + result);
+
       }
     } catch (Exception e) {
       e.printStackTrace();
