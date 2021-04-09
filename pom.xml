@@ -12,7 +12,7 @@
         <dependency>
             <groupId>io.harness</groupId>
             <artifactId>ff-java-server-sdk</artifactId>
-            <version>0.0.5</version>
+            <version>0.0.6</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -21,4 +21,9 @@
         </dependency>
 
     </dependencies>
+
+    <properties>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
 </project>
