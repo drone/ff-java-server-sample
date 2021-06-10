@@ -15,7 +15,7 @@ We are using the java sdk jar as dependency for this sample program
             <dependency>
                 <groupId>io.harness</groupId>
                 <artifactId>ff-java-server-sdk</artifactId>
-                <version>0.0.9</version>
+                <version>0.0.9.1</version>
             </dependency>
 ```
 
