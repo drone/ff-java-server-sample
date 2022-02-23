@@ -16,8 +16,9 @@ public class HelloWorld {
       /**
        * Put the API Key here from your environment
        */
-      String apiKey = "a2a03d94-b37d-49b8-8566-1c29b86ab255";
+      String apiKey = "4d3a7f11-a3ab-4c6c-a235-62a5bfd8a29e";
       CfClient cfClient = new CfClient(apiKey, Config.builder().build());
+      cfClient.waitForInitialization();
       /**
        * Define you target on which you would like to evaluate the featureFlag
        */
@@ -36,7 +37,7 @@ public class HelloWorld {
          * the identifier of your feature flag
          */
         boolean result =
-            cfClient.boolVariation("sample_boolean_flag", target, false);
+            cfClient.boolVariation("harnessappdemoenablecimodule", target, false);
         log.info("Boolean variation is " + result);
       }
     } catch (Exception e) {
