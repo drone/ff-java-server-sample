@@ -22,14 +22,8 @@ public class HelloWorld {
             /**
              * Put the API Key here from your environment
              */
-            String apiKey = System.getenv("SDK_KEY");
-            if (apiKey == "" || apiKey == null){
-                log.info("Using default SDK_KEY");
-                apiKey = "d54e2088-2811-4e14-a710-f746dfd87646";
-            }else{
-                log.info("Using SDK_KEY form environment " + apiKey);
-            }
-
+            String apiKey = System.getenv().getOrDefault("","d54e2088-2811-4e14-a710-f746dfd87646");
+            log.info("Using SDK_KEY" + apiKey);
             String identifier = "test_flag";
             CfClient cfClient = new CfClient(apiKey, Config.builder().build());
             cfClient.waitForInitialization();
