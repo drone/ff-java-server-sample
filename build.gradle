@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'application'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo1.maven.org/maven2/')
+    }
+
+    maven {
+        url = uri('https://s01.oss.sonatype.org/content/repositories/snapshots/')
+    }
+
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+    mavenCentral()
+}
+
+sourceSets {
+    main.java.srcDir "src/main/java"
+}
+dependencies {
+    implementation 'io.harness:ff-java-server-sdk:1.1.5.1'
+    implementation 'org.slf4j:slf4j-simple:1.7.36'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+description = 'cf-sample-demo-app'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+mainClassName = 'com.harness.HelloWorld'
+jar {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+}
+task fatJar(type: Jar) {
+    manifest {
+        attributes "Main-Class": "$mainClassName"
+    }
+    baseName = 'fat-cf-sample-demo-app'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+
+    }
+    //exclude manifests from other jars.
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+    with jar
+}

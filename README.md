@@ -19,14 +19,20 @@ This is a sample app demonstrating java sdk integration with CF
 4) Create a boolean feature-flag in the admin console
 5) Import the maven project in an IDE such as [IntelliJ](https://www.jetbrains.com/idea/)
 6) Replace the values for SDK Key and feature-flag identifier in the example program from step 3 and 4
-7) Run the program from the IDE
+7) Run the program from the IDE 
+
+## To build and run from cmd.
+1. Repeat steps 1 - 4 as above
+2. Install gradle + java
+3. export SDK_KEY="<your sdk key>"
+4. to build *./gradlew clean fatJar*
+5. to run *java -jar build/libs/fat-cf-sample-demo-app-1.0-SNAPSHOT.jar*
 
 We are using the java sdk jar as dependency for this sample program
 ``` 
-            <dependency>
-                <groupId>io.harness</groupId>
-                <artifactId>ff-java-server-sdk</artifactId>
-                <version>1.1.0</version>
-            </dependency>
+dependencies {
+    implementation 'io.harness:ff-java-server-sdk:1.1.5.1'
+    implementation 'org.slf4j:slf4j-simple:1.7.36'
+}
 ```
 
